@@ -12,7 +12,7 @@ def install_rootfs():
     os.makedirs("/data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs", exist_ok=True)
     os.makedirs("/data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/ubuntu", exist_ok=True)
     os.system("wget -q --show-progress https://github.com/Ilya114/Box64Droid/releases/download/stable/box64droid-rootfs.tar.xz")
-    os.system("proot-distro restore box64droid-rootfs.tar.xz &>/dev/null")
+    os.system("cat box64droid-rootfs.tar.xz | xz -d | proot-distro restore")
 def scripts():
     os.system("wget https://raw.githubusercontent.com/Ilya114/Box64Droid/main/scripts/non-root/box64droid &>/dev/null")
     os.system("wget https://raw.githubusercontent.com/Ilya114/Box64Droid/main/scripts/non-root/start-box64droid &>/dev/null")
